@@ -10,9 +10,6 @@ if(!isset($_SESSION['admin'])){
     exit();
 }
 
-/* ============================
-   CREATE
-============================ */
 if(isset($_POST['add'])){
     $name = $conn->real_escape_string($_POST['name']);
     $position = (int)$_POST['position_id'];
@@ -24,9 +21,6 @@ if(isset($_POST['add'])){
     exit();
 }
 
-/* ============================
-   DELETE
-============================ */
 if(isset($_GET['delete'])){
     $id = (int)$_GET['delete'];
 
@@ -36,9 +30,6 @@ if(isset($_GET['delete'])){
     exit();
 }
 
-/* ============================
-   UPDATE
-============================ */
 if(isset($_POST['update'])){
     $id = (int)$_POST['id'];
     $name = $conn->real_escape_string($_POST['name']);
@@ -52,9 +43,6 @@ if(isset($_POST['update'])){
     exit();
 }
 
-/* ============================
-   FETCH DATA
-============================ */
 $candidates = $conn->query("
     SELECT candidates.*, positions.position_name
     FROM candidates

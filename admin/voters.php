@@ -5,9 +5,6 @@ function generateNumber($length = 6){
     return str_pad(mt_rand(0, 999999), $length, '0', STR_PAD_LEFT);
 }
 
-/* ============================
-   CREATE
-============================ */
 if(isset($_POST['add'])){
     $student_id = $conn->real_escape_string($_POST['student_id']);
     $number = generateNumber();
@@ -19,9 +16,6 @@ if(isset($_POST['add'])){
     exit();
 }
 
-/* ============================
-   DELETE
-============================ */
 if(isset($_GET['delete'])){
     $id = (int)$_GET['delete'];
 
@@ -31,9 +25,6 @@ if(isset($_GET['delete'])){
     exit();
 }
 
-/* ============================
-   UPDATE
-============================ */
 if(isset($_POST['update'])){
     $id = (int)$_POST['id'];
     $student_id = $conn->real_escape_string($_POST['student_id']);
@@ -43,10 +34,7 @@ if(isset($_POST['update'])){
     header("Location: voters.php?success=updated");
     exit();
 }
-
-/* ============================
-   FETCH DATA
-============================ */
+ 
 $voters = $conn->query("SELECT * FROM voters ORDER BY id DESC");
 ?>
 
