@@ -1,0 +1,324 @@
+ 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+ 
+:root{
+    --bg-main:#f4f6f9;
+    --sidebar-bg:#1e293b;
+    --sidebar-hover:#334155;
+    --primary:#2563eb;
+    --danger:#dc2626;
+    --danger-hover:#b91c1c;
+    --text-light:#ffffff;
+    --text-dark:#333;
+}
+ 
+body{
+    display:flex;
+    background:var(--bg-main);
+}
+ 
+.sidebar{
+    width:230px;
+    height:100vh;
+    background:var(--sidebar-bg);
+    color:var(--text-light);
+    position:fixed;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.sidebar img{
+    width:70px;
+    margin:20px 0 10px;
+}
+
+.sidebar h2{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    width:100%;
+    padding:12px 20px;
+    text-decoration:none;
+    color:var(--text-light);
+    display:block;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:var(--sidebar-hover);
+    padding-left:25px;
+}
+
+.sidebar .active{
+    background:var(--primary);
+}
+
+.sidebar .logout{
+    margin-top:auto;
+    background:var(--danger);
+}
+
+.sidebar .logout:hover{
+    background:var(--danger-hover);
+}
+ 
+.main-content{
+    margin-left:230px;
+    padding:30px;
+    width:100%;
+}
+
+.page-title{
+    margin-bottom:25px;
+    color:var(--text-dark);
+}
+ 
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    font-size:35px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:16px;
+    color:#555;
+}
+/* FORMS */
+form input[type="text"]{
+    padding:10px;
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:6px;
+    margin-bottom:10px;
+}
+
+hr{
+    margin:20px 0;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th, table td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+table th{
+    background:#f9fafb;
+}
+
+table tr:hover{
+    background:#f3f4f6;
+}
+
+/* BUTTONS */
+.btn{
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:14px;
+    cursor:pointer;
+    display:inline-block;
+    transition:0.2s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    opacity:0.9;
+}
+
+.btn-success{
+    background:#16a34a;
+    color:white;
+}
+
+.btn-success:hover{
+    opacity:0.9;
+}
+
+.btn-danger{
+    background:var(--danger);
+    color:white;
+}
+
+.btn-danger:hover{
+    background:var(--danger-hover);
+}
+
+.btn-cancel{
+    background:#6b7280;
+    color:white;
+}
+
+/* SUCCESS MESSAGE */
+.success-msg{
+    background:#d1fae5;
+    color:#065f46;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+
+  /* RESULTS PAGE*/
+
+.timestamp{
+    font-size:14px;
+    margin-bottom:25px;
+    color:#555;
+}
+
+.position-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom:25px;
+}
+
+.position-card h2{
+    margin-bottom:15px;
+    color:var(--primary);
+}
+
+.candidate{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:6px;
+}
+
+.winner{
+    background:#dcfce7;
+    border-left:6px solid #16a34a;
+    font-weight:bold;
+}
+
+.loser{
+    background:#f1f5f9;
+}
+
+.badge{
+    padding:5px 10px;
+    border-radius:12px;
+    font-size:12px;
+    color:white;
+}
+
+.badge-win{
+    background:#16a34a;
+}
+
+.badge-lose{
+    background:#64748b;
+}
+
+/*voters
+
+/* =========================
+   VOTERS PAGE
+========================= */
+
+.form-inline{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.form-inline input{
+    flex:1;
+    min-width:200px;
+}
+
+/* VOTER NUMBER STYLE */
+.voter-number{
+    background:#e0f2fe;
+    color:#0369a1;
+    padding:6px 10px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:13px;
+    display:inline-block;
+}
+
+/* TABLE IMPROVEMENT */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#f1f5f9;
+    font-weight:600;
+}
+
+table th, table td{
+    padding:12px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+table tr:hover{
+    background:#f8fafc;
+    transition:0.2s;
+}
+
+/* ACTION BUTTON SPACING */
+td .btn{
+    margin-right:5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+    .main-content{
+        padding:15px;
+    }
+
+    .form-inline{
+        flex-direction:column;
+    }
+
+    table{
+        font-size:14px;
+    }
+}
