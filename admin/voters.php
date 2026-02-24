@@ -3,9 +3,6 @@ include '../config.php';
 
 if(!isset($_SESSION['admin'])) header("Location: login.php");
 
-/* ============================
-   CREATE
-============================ */
 if(isset($_POST['add'])){
     $student_id = $conn->real_escape_string($_POST['student_id']);
     $name = $conn->real_escape_string($_POST['name']);
@@ -23,6 +20,7 @@ if($check->num_rows > 0){
     exit();
 }
 
+<<<<<<< HEAD
     header("Location: students.php?success=added");
     exit();
 }
@@ -30,6 +28,8 @@ if($check->num_rows > 0){
 /* ============================
    DELETE
 ============================ */
+=======
+>>>>>>> 7d4b6d6aa2e54a7d7738cba960c6a41c7f402ad5
 if(isset($_GET['delete'])){
     $id = (int)$_GET['delete'];
     $conn->query("DELETE FROM students WHERE id=$id");
@@ -38,9 +38,6 @@ if(isset($_GET['delete'])){
     exit();
 }
 
-/* ============================
-   UPDATE
-============================ */
 if(isset($_POST['update'])){
     $id = (int)$_POST['id'];
     $student_id = $conn->real_escape_string($_POST['student_id']);
@@ -54,8 +51,13 @@ if(isset($_POST['update'])){
     header("Location: students.php?success=updated");
     exit();
 }
+<<<<<<< HEAD
 
 $students = $conn->query("SELECT * FROM students ORDER BY id DESC");
+=======
+ 
+$voters = $conn->query("SELECT * FROM voters ORDER BY id DESC");
+>>>>>>> 7d4b6d6aa2e54a7d7738cba960c6a41c7f402ad5
 ?>
 
 <!DOCTYPE html>
