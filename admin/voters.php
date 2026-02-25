@@ -1,6 +1,11 @@
 <?php
 include '../config.php';
-
+ // Reset all votes
+ if(isset($_POST['reset_results'])){
+    $conn->query("DELETE FROM students");
+    echo "<script>alert('All Voters have been Deleted.'); window.location.href='".$_SERVER['PHP_SELF']."';</script>";
+    exit();
+}
 if(!isset($_SESSION['admin'])) header("Location: login.php");
 
 if(isset($_POST['add'])){
@@ -20,7 +25,6 @@ if($check->num_rows > 0){
     exit();
 }
 
-<<<<<<< HEAD
     header("Location: students.php?success=added");
     exit();
 }
@@ -28,8 +32,6 @@ if($check->num_rows > 0){
 /* ============================
    DELETE
 ============================ */
-=======
->>>>>>> 7d4b6d6aa2e54a7d7738cba960c6a41c7f402ad5
 if(isset($_GET['delete'])){
     $id = (int)$_GET['delete'];
     $conn->query("DELETE FROM students WHERE id=$id");
@@ -51,13 +53,8 @@ if(isset($_POST['update'])){
     header("Location: students.php?success=updated");
     exit();
 }
-<<<<<<< HEAD
 
 $students = $conn->query("SELECT * FROM students ORDER BY id DESC");
-=======
- 
-$voters = $conn->query("SELECT * FROM voters ORDER BY id DESC");
->>>>>>> 7d4b6d6aa2e54a7d7738cba960c6a41c7f402ad5
 ?>
 
 <!DOCTYPE html>
@@ -207,18 +204,7 @@ th{
 
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <img src="Logo.png" alt="">
-    <h2>VeriVote Admin</h2>
-
-    <a href="dashboard.php">Dashboard</a>
-    <a href="positions.php">Manage Positions</a>
-    <a href="candidates.php">Manage Candidates</a>
-    <a href="students.php" class="active">Manage Students</a>
-    <a href="results.php">View Results</a>
-    <a href="logout.php" class="logout">Logout</a>
-</div>
+<?php include '../includes/admin_sidebar.php'; ?>
 
 <!-- MAIN -->
 <div class="main-content">
@@ -239,6 +225,13 @@ th{
     <input type="text" name="course" placeholder="Course" required>
     <button type="submit" name="add" class="btn-primary">Add Student</button>
 </form>
+
+<form method="POST" style="margin-bottom:15px;" onsubmit="return confirm('Are you sure you want to reset all results?');">
+    <button type="submit" name="reset_results" class="btn btn-danger">
+       Delete All Voters
+    </button>
+</form>
+
 
 <hr>
 

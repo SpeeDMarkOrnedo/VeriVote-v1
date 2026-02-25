@@ -41,7 +41,7 @@ if(isset($_POST['register'])){
 <body>
 
 <div class="card">
-    <img src="Logo.png" alt="Logo">
+    <img src="../includes/MinSULogo.png" alt="Logo">
     <h2>Student Registration</h2>
 
     <form method="POST">
